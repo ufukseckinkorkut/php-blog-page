@@ -49,6 +49,14 @@
     <div class="container">
         <p><?= nl2br($content) ?></p>
         <a href="homepage.php" class="back-btn">← Back to homepage</a>
+
+        <form action="delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');" style="display:inline;">
+            <input type="hidden" name="id" value="<?= $post_id ?>">
+            <button type="submit" class="delete-btn" name="delete">Delete Post</button>
+         </form>
     </div>
+
+
+
 </body>
 </html>
