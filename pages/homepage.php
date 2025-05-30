@@ -20,14 +20,6 @@
     <p>Sharing thoughts and ideas</p>
   </header>
 
-  <div class="container">
-    <!-- Example post (you’ll loop this part with PHP) -->
-    <div class="post">
-      <h2>Post Title</h2>
-      <div class="meta">By Ufuk | May 13, 2025</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis...</p>
-      <a href="post.php?id=1" class="read-more">Read more →</a>
-    </div>
 
 <div class="container">
   <?php if (mysqli_num_rows($result) > 0): ?>
@@ -48,7 +40,6 @@
     
     <!-- Add more posts dynamically -->
 
-  </div>
 
     <form action="create_post.php" method="POST">
             <button type="submit" name="create" class="create-btn">Create a post</button>
