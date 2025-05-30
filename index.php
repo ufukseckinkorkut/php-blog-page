@@ -41,7 +41,7 @@
             } else {
             if ($username === $usernameData && $password === $passwordData) {
                 $_SESSION['username'] = $username;
-                header('Location: pages/loggedin.php');
+                header('Location: pages/homepage.php');
                 exit();
             }
             else {
