@@ -6,7 +6,14 @@
     if (isset($_GET['id'])) {
         $post_id = (int)$_GET['id'];  // Cast to integer for safety
 
-        $sql = "SELECT * FROM posts WHERE id = $post_id";
+
+        $sql = "SELECT posts.*, users.username FROM posts
+                JOIN users ON posts.user_id = users.id
+                WHERE posts.id = $post_id
+                "; 
+
+
+
 
 
         $result = mysqli_query($connection, $sql);
@@ -43,7 +50,7 @@
 <body>
     <header>
         <h1><?= $title ?></h1>
-        <div class="meta">By <?= $author ?> | <?= $created_at ?></div>
+        <div class="meta">By <?= $row['username'] ?> | <?= $created_at ?></div>
     </header>
 
     <div class="container">
