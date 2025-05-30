@@ -10,7 +10,7 @@
     $sql = "SELECT posts.*, users.username FROM posts
         JOIN users ON posts.user_id = users.id
         ORDER BY posts.created_at DESC";
-        
+
     $result = mysqli_query($connection, $sql);
 ?>
 
@@ -50,7 +50,7 @@
     <!-- Add more posts dynamically -->
 
 
-    <form action="create_post.php" method="POST">
+    <form action="create_post.php" method="POST" class="create-btn-container">
             <button type="submit" name="create" class="create-btn">Create a post</button>
     </form>
 
