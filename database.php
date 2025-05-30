@@ -11,7 +11,7 @@
 
      /* if ($connection) {
         echo "you are connected";
-    }   */ 
+    }   */
 
 
 ?>
