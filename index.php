@@ -30,8 +30,11 @@
             $row = mysqli_fetch_assoc($result);
             $usernameData = $row["username"];
             $passwordData = $row["password"];
+            $user_id = $row["id"];
         }
         mysqli_close($connection); 
+
+        $_SESSION['user_id'] = $user_id;
         
 
         // the part where I control the login informations 

@@ -1,7 +1,16 @@
 <?php
     include("../database.php");
 
-    $sql = "SELECT * FROM posts ORDER BY created_at DESC";
+    session_start();
+
+    $username = $_SESSION["username"];
+    $user_id = $_SESSION["user_id"];
+
+
+    $sql = "SELECT posts.*, users.username FROM posts
+        JOIN users ON posts.user_id = users.id
+        ORDER BY posts.created_at DESC";
+        
     $result = mysqli_query($connection, $sql);
 ?>
 
@@ -26,7 +35,7 @@
     <?php while ($row = mysqli_fetch_assoc($result)): ?>
       <div class="post">
         <h2><?= $row['title'] ?></h2>
-        <div class="meta">By USER | <?= date("F j, Y", strtotime($row['created_at'])) ?></div>
+        <div class="meta">By <?= $row['username'] ?> | <?= date("F j, Y", strtotime($row['created_at'])) ?></div>
         <p><?= substr($row['content'], 0, 100) ?>...</p>
         <a href="post.php?id=<?= $row['id'] ?>" class="read-more">Read more →</a>
       </div>
